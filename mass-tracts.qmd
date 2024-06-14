@@ -18,8 +18,18 @@ library(tidyverse)
 #| message: false
 #| label: plot
 
-mt <- read_csv("data/mass-tracts.csv")
+mt <- read_csv("data/mass-tracts.csv", show_col_types = FALSE) |> drop_na()
 
-mt
+mt |>
+  ggplot(aes(x = med_income)) +
+  geom_density(aes(fill = race), alpha = 0.5, adjust = 2) +
+  scale_x_continuous(labels = scales::dollar_format()) +
+  scale_y_continuous(labels = NULL) +
+  theme_minimal() +
+  labs(title = "Median Income for Massachusetts Census Tracts",
+       subtitle = "The richest tracts are white",
+       x = "Median Income",
+       fill = "Race",
+       y = "")
 ```
 
