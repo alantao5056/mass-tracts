@@ -1,0 +1,25 @@
+---
+title: "Mass Tracts"
+author: "Alan Tao"
+format: html
+execute:
+  echo: false
+---
+
+```{r}
+#| message: false
+#| warning: false
+#| label: setup
+
+library(tidyverse)
+```
+
+```{r}
+#| message: false
+#| label: plot
+
+mt <- read_csv("data/mass-tracts.csv")
+
+mt
+```
+
